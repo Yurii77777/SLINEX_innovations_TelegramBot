@@ -9,7 +9,7 @@
 import { connect } from "./config/db.config";
 import { handleEvents } from "./app";
 
-const start = async () => {
+const start = async (): Promise<any> => {
     // Connect to MongoDB
     connect();
 
