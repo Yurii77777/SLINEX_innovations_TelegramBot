@@ -7,7 +7,17 @@
  */
 import { bot } from "./config/telegram.config";
 import { setBotCommands } from "./utils/setBotCommands";
+import { handleStartCommand } from "./commands/handleStartCommand";
+
+import messagesUA from "./translate/messagesUA.json";
 
 export const handleEvents = async (): Promise<any> => {
     await setBotCommands(bot);
+
+    // Menu commands handlers
+    bot.start(async (ctx: any): Promise<any> => {
+        await handleStartCommand({ ctx, messagesUA });
+    });
+
+    bot.launch();
 };
