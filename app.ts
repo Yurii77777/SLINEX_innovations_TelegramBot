@@ -8,6 +8,8 @@
 import { bot } from "./config/telegram.config";
 import { setBotCommands } from "./utils/setBotCommands";
 import { handleStartCommand } from "./commands/handleStartCommand";
+import { setBotLanguage } from "./commands/setBotLanguage";
+import { sendLanguageKeyboard } from "./commands/sendLanguageKeyboard";
 
 import messagesUA from "./translate/messagesUA.json";
 
@@ -17,6 +19,23 @@ export const handleEvents = async (): Promise<any> => {
     // Menu commands handlers
     bot.start(async (ctx: any): Promise<any> => {
         await handleStartCommand({ ctx, messagesUA });
+    });
+
+    bot.command("setlanguage", async (ctx: any): Promise<any> => {
+        await sendLanguageKeyboard({ ctx });
+    });
+
+    // Actions handlers
+    bot.action("setUaLanguage", async (ctx: any): Promise<any> => {
+        await setBotLanguage({ ctx, language: "UA" });
+    });
+
+    bot.action("setSurjikLanguage", async (ctx: any): Promise<any> => {
+        await setBotLanguage({ ctx, language: "SU" });
+    });
+
+    bot.action("setEngLanguage", async (ctx: any): Promise<any> => {
+        await setBotLanguage({ ctx, language: "ENG" });
     });
 
     bot.launch();
