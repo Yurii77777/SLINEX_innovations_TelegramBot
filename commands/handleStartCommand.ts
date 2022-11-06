@@ -9,6 +9,7 @@
 import { UserModel } from "../model/user.model";
 
 import { sendLanguageKeyboard } from "../commands/sendLanguageKeyboard";
+import { handleDelayedSendMessage } from "../utils/handleDelayedSendMessage";
 
 interface IMessages {
     [key: string]: string | number;
@@ -51,21 +52,35 @@ export const handleStartCommand = async (options: {
             return ctx.reply(messagesUA.errorDB);
         }
 
-        setTimeout(async () => {
-            await ctx.reply(messagesUA.startMessage1NewUser);
-        }, 5000);
+        const {
+            startMessage1NewUser,
+            startMessage2NewUser,
+            startMessage3NewUser,
+        } = messagesUA;
 
-        setTimeout(async () => {
-            await ctx.reply(messagesUA.startMessage2NewUser);
-        }, 10000);
+        await handleDelayedSendMessage({
+            delayValue: 5000,
+            ctx,
+            message: startMessage1NewUser,
+        });
 
-        setTimeout(async () => {
-            await ctx.reply(messagesUA.startMessage3NewUser);
-        }, 15000);
+        await handleDelayedSendMessage({
+            delayValue: 5000,
+            ctx,
+            message: startMessage2NewUser,
+        });
 
-        setTimeout(async () => {
-            await sendLanguageKeyboard({ ctx });
-        }, 20000);
+        await handleDelayedSendMessage({
+            delayValue: 5000,
+            ctx,
+            message: startMessage3NewUser,
+        });
+
+        await handleDelayedSendMessage({
+            delayValue: 5000,
+            ctx,
+            action: sendLanguageKeyboard,
+        });
 
         return;
     }
