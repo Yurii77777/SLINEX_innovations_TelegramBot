@@ -1,4 +1,6 @@
 {
     "errorDB": "Unfortunately, the database does not respond ... ☹️ \n Please, try again later",
-    "setENGLanguageMessage": "No problem! 😎"
+    "setENGLanguageMessage": "No problem! 😎",
+    "newUserViaLanguageSelect": "I recommend starting with the /start command 😉",
+    "catalog": "Product catalog is here 👇"
 }

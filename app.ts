@@ -10,6 +10,7 @@ import { setBotCommands } from "./utils/setBotCommands";
 import { handleStartCommand } from "./commands/handleStartCommand";
 import { setBotLanguage } from "./commands/setBotLanguage";
 import { sendLanguageKeyboard } from "./commands/sendLanguageKeyboard";
+import { sendCatalogButton } from "./commands/sendCatalogButton";
 
 import messagesUA from "./translate/messagesUA.json";
 
@@ -23,6 +24,10 @@ export const handleEvents = async (): Promise<any> => {
 
     bot.command("setlanguage", async (ctx: any): Promise<any> => {
         await sendLanguageKeyboard({ ctx });
+    });
+
+    bot.command("catalog", async (ctx: any): Promise<any> => {
+        await sendCatalogButton({ ctx });
     });
 
     // Actions handlers

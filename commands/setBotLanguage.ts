@@ -20,6 +20,21 @@ export const setBotLanguage = async (options: {
     let updatedUserData = null;
 
     try {
+        // Look for User in DB
+        const userData = await UserModel.findOne({ chatId });
+
+        if (!userData && language === "UA") {
+            return await ctx.reply(messagesUA.newUserViaLanguageSelect);
+        }
+
+        if (!userData && language === "SU") {
+            return await ctx.reply(messagesSU.newUserViaLanguageSelect);
+        }
+
+        if (!userData && language === "ENG") {
+            return await ctx.reply(messagesENG.newUserViaLanguageSelect);
+        }
+
         updatedUserData = await UserModel.findOneAndUpdate(
             { chatId },
             { language }
