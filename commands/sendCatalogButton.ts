@@ -15,7 +15,7 @@ const messagesENG = require("../translate/messagesENG.json");
 export const sendCatalogButton = async (options: { ctx: any }) => {
     const { ctx } = options;
     const chatId: number = ctx.chat.id;
-    const webAppUrl = "https://slinex.com.ua/"; // replace for responsive landing page with TG tags and scripts
+    const webAppUrl = "https://slinex-web-morda.vercel.app/";
 
     const keyboard = [
         [
