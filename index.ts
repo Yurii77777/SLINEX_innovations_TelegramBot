@@ -24,7 +24,7 @@ app.get(
     }
 );
 
-export const startSlinexBot = async (): Promise<any> => {
+const start = async (): Promise<any> => {
     try {
         // Connect to MongoDB
         connect();
@@ -40,3 +40,5 @@ export const startSlinexBot = async (): Promise<any> => {
         console.log("The Slinex Bot has not been launched :::", error.message);
     }
 };
+
+start();
