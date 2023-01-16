@@ -14,8 +14,8 @@ const { Telegraf } = require("telegraf");
 // 3. Choose a username for your bot
 // 4. Now let's choose a username for your bot. It must end in `bot`
 // 5. BotFather sends us a unique Token
-// 6. Set Token in var TELEGRAM_API .env
-const token = process.env["TELEGRAM_API"];
+// 6. Set Token in var SLINEX_BOT_API .env
+const token = process.env["SLINEX_BOT_API"];
 
 // For example this Bot is available on https://t.me/SLINEX_innovationsBot
 export const bot = new Telegraf(token);

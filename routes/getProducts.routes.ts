@@ -16,7 +16,7 @@ export const getProducts = async (
 
     try {
         let result = {};
-        const BASE_URL: string = process.env["CATALOG_BASE_URL"];
+        const BASE_URL: string = process.env["SLINEX_CATALOG_BASE_URL"];
 
         const response: AxiosResponse<any> = await axios.get(
             BASE_URL + `?category=${category}`

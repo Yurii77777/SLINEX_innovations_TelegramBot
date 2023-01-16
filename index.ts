@@ -5,9 +5,7 @@
  * Telegram @Yurets7777 E-mail: yuretshome@gmail.com
  * "Роби добре, та тільки добре! А можеш? - Роби краще!"
  */
-const path = require("path");
 import express, { Express, Request, Response } from "express";
-import axios, { AxiosResponse } from "axios";
 
 import { connect } from "./config/db.config";
 import { handleEvents } from "./app";
@@ -26,7 +24,7 @@ app.get(
     }
 );
 
-const start = async (): Promise<any> => {
+export const startSlinexBot = async (): Promise<any> => {
     try {
         // Connect to MongoDB
         connect();
@@ -39,8 +37,6 @@ const start = async (): Promise<any> => {
         // Start Telegram Bot
         await handleEvents();
     } catch (error) {
-        console.log("The bot has not been launched :::", error.message);
+        console.log("The Slinex Bot has not been launched :::", error.message);
     }
 };
-
-start();

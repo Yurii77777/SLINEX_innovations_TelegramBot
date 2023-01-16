@@ -12,7 +12,7 @@ require("dotenv").config();
 let database: Mongoose.Connection;
 
 export const connect = () => {
-    const url = process.env.MONGO_URL;
+    const url = process.env.SLINEX_MONGO_URL;
 
     if (database) {
         return;
@@ -23,8 +23,8 @@ export const connect = () => {
     database = Mongoose.connection;
 
     console.log(
-        "from connect: process.env.MONGO_URL :::",
-        process.env.MONGO_URL
+        "from connect: process.env.SLINEX_MONGO_URL :::",
+        process.env.SLINEX_MONGO_URL
     );
 
     database.once("open", async () => {

@@ -6,8 +6,8 @@ This is an example of Telegram Bot with in-build Web App.
 
 Create `.env` file with variables:
 
--   `MONGO_URL` - string to connect to MongoDB;
--   `TELEGRAM_API` - token provided Telegram BotFather
+-   `SLINEX_MONGO_URL` - string to connect to MongoDB;
+-   `SLINEX_BOT_API` - token provided Telegram BotFather
 
 -   run `npm i`;
 -   run `npm run build`;
