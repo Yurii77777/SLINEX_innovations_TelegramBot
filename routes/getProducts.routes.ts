@@ -33,7 +33,10 @@ export const getProducts = async (
         const { data: responseValue } = data;
         result = responseValue;
 
-        res.send(result);
+        res.send({
+            status: 200,
+            data: result,
+        });
     } catch (error) {
         res.status(500).json({
             message: "Запит не виконано, спробуйте повторити пізніше ...",
